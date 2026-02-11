@@ -54,9 +54,6 @@ class SalesService:
 
     def get_sales_list_by_user(self, user_id):
 
-        print()
-        print('user_id', user_id)
-        print()
         if user_id is None:
             raise ValidationError("User id is required")
 
