@@ -12,7 +12,6 @@ urlpatterns = [
 
     # SALES MASTER
     path('sales/', SalesListCreateAPIView.as_view(), name='sales-list-create'),
-    # path('sales/<int:pk>/', SalesRetrieveUpdateDeleteAPIView.as_view(), name='sales-detail'),
 
     # DROPDOWNS
     path('users/', UsersAPIView.as_view(), name='users'),

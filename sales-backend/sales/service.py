@@ -64,42 +64,4 @@ class SalesService:
     def list_sales(self):
         return SalesMaster.objects.prefetch_related("details", "user").all()
 
-    @transaction.atomic
-    def update_sales(self, pk, validated_data):
-        details_data = validated_data.pop("details", None)
-
-        if not details_data:
-            raise ValidationError("Sales details are required")
-
-        master = SalesMaster.objects.filter(pk=pk).first()
-
-        if not master:
-            raise NotFound("Sales record not found")
-
-        for attr, value in validated_data.items():
-            setattr(master, attr, value)
-        master.save()
-
-        SalesDetails.objects.filter(sales_master=master).delete()
-
-        SalesDetails.objects.bulk_create([
-            SalesDetails(
-                sales_master=master,
-                country=detail["country"],
-                city=detail["city"],
-                product=detail["product"],
-                qty_sold=detail["qty_sold"],
-                amount=detail["amount"],
-            )
-            for detail in details_data
-        ])
-
-        return master
-
-    def delete_sales(self, pk):
-        master = SalesMaster.objects.filter(pk=pk).first()
-
-        if not master:
-            raise NotFound("Sales record not found")
-
-        master.delete()
+    
