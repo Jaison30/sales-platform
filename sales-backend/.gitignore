@@ -1,0 +1,15 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+
+# Migrations cache (optional — keep migrations if team project)
+**/migrations/__pycache__/
+
+# IDE
+.vscode/
+.idea/
+
+

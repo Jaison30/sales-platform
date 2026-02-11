@@ -1,0 +1,29 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+/* AntD layout fix */
+.ant-layout {
+  height: auto !important;
+  overflow: visible !important;
+}
+
+/* Card fix */
+.ant-card-body {
+  overflow: visible !important;
+}
+
+/* Table fix */
+.ant-table-body {
+  overflow-y: visible !important;
+}
